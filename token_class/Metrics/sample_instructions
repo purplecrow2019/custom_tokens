@@ -1,0 +1,254 @@
+for eg:-  i have a string:-
+
+ < --------------- STRING  -------------- >
+
+        'sin(x) + log(x)'
+
+ Custom Token Split Results: -
+
+[ CompleteToken {
+    type: 'Function',
+    value: 'sin',
+    meta: 'trigonometric_function' },
+  CompleteToken { type: 'lp', value: '(', meta: 'lp' },
+  CompleteToken { type: 'Variable', value: 'x', meta: 'Variable' },
+  CompleteToken { type: 'rp', value: ')', meta: 'rp' },
+  CompleteToken { type: 'Operator', value: '+', meta: 'Operator' },
+  CompleteToken { type: 'Function', value: 'log', meta: 'logarithmic_function' },
+  CompleteToken { type: 'lp', value: '(', meta: 'lp' },
+  CompleteToken { type: 'Variable', value: 'x', meta: 'Variable' },
+  CompleteToken { type: 'rp', value: ')', meta: ')' } ]
+
+
+  So then thinking of getting weightage score from 2 separate indexes on (   meta   ) and (   value   )
+
+  Metric of simple tf idf and cosine similarity
+
+  [ Token { type: 'Letter', value: 's' },
+  Token { type: 'Letter', value: 'i' },
+  Token { type: 'Letter', value: 'n' },
+  Token { type: 'lp', value: '(' },
+  Token { type: 'Letter', value: 'x' },
+  Token { type: 'rp', value: ')' },
+  Token { type: 'Operator', value: '+' },
+  Token { type: 'Letter', value: 'c' },
+  Token { type: 'Letter', value: 'o' },
+  Token { type: 'Letter', value: 's' },
+  Token { type: 'lp', value: '(' },
+  Token { type: 'Letter', value: 'x' },
+  Token { type: 'rp', value: ')' } ]
+token-end
+custom tokens
+[ CompleteToken {
+    type: 'Function',
+    value: 'sin',
+    meta: 'trigonometric_function' },
+  CompleteToken { type: 'lp', value: '(', meta: 'lp' },
+  CompleteToken { type: 'Variable', value: 'x', meta: 'Variable' },
+  CompleteToken { type: 'rp', value: ')', meta: 'rp' },
+  CompleteToken { type: 'Operator', value: '+', meta: 'Operator' },
+  CompleteToken {
+    type: 'Function',
+    value: 'cos',
+    meta: 'trigonometric_function' },
+  CompleteToken { type: 'lp', value: '(', meta: 'lp' },
+  CompleteToken { type: 'Variable', value: 'x', meta: 'Variable' },
+  CompleteToken { type: 'rp', value: ')', meta: ')' } ]
+token - start
+[ Token { type: 'Letter', value: 'l' },
+  Token { type: 'Letter', value: 'n' },
+  Token { type: 'lp', value: '(' },
+  Token { type: 'Letter', value: 'x' },
+  Token { type: 'rp', value: ')' },
+  Token { type: 'Operator', value: '*' },
+  Token { type: 'Letter', value: 'c' },
+  Token { type: 'Letter', value: 'o' },
+  Token { type: 'Letter', value: 's' },
+  Token { type: 'lp', value: '(' },
+  Token { type: 'Letter', value: 'y' },
+  Token { type: 'rp', value: ')' } ]
+token-end
+custom tokens
+[ CompleteToken { type: 'Function', value: 'ln', meta: 'logarithmic_function' },
+  CompleteToken { type: 'lp', value: '(', meta: 'lp' },
+  CompleteToken { type: 'Variable', value: 'x', meta: 'Variable' },
+  CompleteToken { type: 'rp', value: ')', meta: 'rp' },
+  CompleteToken { type: 'Operator', value: '*', meta: 'Operator' },
+  CompleteToken {
+    type: 'Function',
+    value: 'cos',
+    meta: 'trigonometric_function' },
+  CompleteToken { type: 'lp', value: '(', meta: 'lp' },
+  CompleteToken { type: 'Variable', value: 'y', meta: 'Variable' },
+  CompleteToken { type: 'rp', value: ')', meta: ')' } ]
+token - start
+[ Token { type: 'Letter', value: 'a' },
+  Token { type: 'Letter', value: 'x' },
+  Token { type: 'Operator', value: '^' },
+  Token { type: 'Digit', value: '2' },
+  Token { type: 'Operator', value: '+' },
+  Token { type: 'Letter', value: 'b' },
+  Token { type: 'Letter', value: 'x' },
+  Token { type: 'Operator', value: '+' },
+  Token { type: 'Letter', value: 'c' } ]
+token-end
+custom tokens
+[ CompleteToken { type: 'Variable', value: 'ax', meta: 'Variable' },
+  CompleteToken { type: 'Operator', value: '^', meta: 'Operator' },
+  CompleteToken { type: 'Literal', value: '2', meta: 'Literal' },
+  CompleteToken { type: 'Operator', value: '+', meta: 'Operator' },
+  CompleteToken { type: 'Variable', value: 'bx', meta: 'Variable' },
+  CompleteToken { type: 'Operator', value: '+', meta: 'Operator' },
+  CompleteToken { type: 'Variable', value: 'c', meta: 'c' } ]
+token - start
+[ Token { type: 'Digit', value: '1' },
+  Token { type: 'Digit', value: '0' },
+  Token { type: 'Letter', value: 'x' },
+  Token { type: 'Operator', value: '^' },
+  Token { type: 'Digit', value: '2' },
+  Token { type: 'Operator', value: '+' },
+  Token { type: 'Digit', value: '5' },
+  Token { type: 'Letter', value: 'x' },
+  Token { type: 'Operator', value: '+' },
+  Token { type: 'Digit', value: '7' } ]
+token-end
+custom tokens
+[ CompleteToken { type: 'Literal', value: '10', meta: 'Literal' },
+  CompleteToken { type: 'Variable', value: 'x', meta: 'Variable' },
+  CompleteToken { type: 'Operator', value: '^', meta: 'Operator' },
+  CompleteToken { type: 'Literal', value: '2', meta: 'Literal' },
+  CompleteToken { type: 'Operator', value: '+', meta: 'Operator' },
+  CompleteToken { type: 'Literal', value: '5', meta: 'Literal' },
+  CompleteToken { type: 'Variable', value: 'x', meta: 'Variable' },
+  CompleteToken { type: 'Operator', value: '+', meta: 'Operator' },
+  CompleteToken { type: 'Literal', value: '7', meta: '7' } ]
+[ [ 'trigonometric_function',
+    'lp',
+    'Variable',
+    'rp',
+    'Operator',
+    'trigonometric_function',
+    'lp',
+    'Variable',
+    ')' ],
+  [ 'logarithmic_function',
+    'lp',
+    'Variable',
+    'rp',
+    'Operator',
+    'trigonometric_function',
+    'lp',
+    'Variable',
+    ')' ],
+  [ 'Variable',
+    'Operator',
+    'Literal',
+    'Operator',
+    'Variable',
+    'Operator',
+    'c' ],
+  [ 'Literal',
+    'Variable',
+    'Operator',
+    'Literal',
+    'Operator',
+    'Literal',
+    'Variable',
+    'Operator',
+    '7' ] ]
+[ 'trigonometric_function',
+  'lp',
+  'Variable',
+  'rp',
+  'Operator',
+  ')',
+  'logarithmic_function',
+  'Literal',
+  'c',
+  '7' ]
+[ { string: 'ln(x)*cos(y)', score: 0.9999999999999998 },
+  { string: 'sin(x)+cos(x)', score: 0.7627700713964737 },
+  { string: 'ax^2+bx+c', score: 0 },
+  { string: '10x^2+5x+7', score: 0 } ]
+
+
+
+
+  JUST METRICS -
+
+  [ { string: 'sin(x)+cos(x)', score: 0.7627700713964737 },
+  { string: 'ln(x)*cos(y)', score: 0.9999999999999998 },
+  { string: 'ax^2+bx+c', score: 0 },
+  { string: '10x^2+5x+7', score: 0 } ]
+[ [ 1.3862943611198906,
+    1.3862943611198906,
+    0.5753641449035617,
+    1.3862943611198906,
+    0.28768207245178085,
+    0.6931471805599453,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0 ],
+  [ 0,
+    1.3862943611198906,
+    0.28768207245178085,
+    1.3862943611198906,
+    0,
+    0.6931471805599453,
+    1.3862943611198906,
+    1.3862943611198906,
+    1.3862943611198906,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0 ],
+  [ 0,
+    0,
+    0,
+    0,
+    0.5753641449035617,
+    0,
+    0,
+    0,
+    0,
+    1.3862943611198906,
+    0.6931471805599453,
+    0.6931471805599453,
+    1.3862943611198906,
+    1.3862943611198906,
+    0,
+    0,
+    0 ],
+  [ 0,
+    0,
+    0.5753641449035617,
+    0,
+    0.5753641449035617,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0.6931471805599453,
+    0.6931471805599453,
+    0,
+    0,
+    1.3862943611198906,
+    1.3862943611198906,
+    1.3862943611198906 ] ]
+[ { string: 'sin(x)+cos(x)', score: 0.5371904924002783 },
+  { string: 'ln(x)*cos(y)', score: 0.8693134954342713 },
+  { string: 'ax^2+bx+c', score: 0 },
+  { string: '10x^2+5x+7', score: 0 } ]
