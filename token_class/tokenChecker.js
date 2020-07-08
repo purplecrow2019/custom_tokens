@@ -10,11 +10,11 @@ module.exports = class tokenChecker{
     }
 
     static isLeftParenthesis(char) {
-        return (char === "(");
+        return (char === "(" || char === '[' || char === '{');
     }
 
     static isRightParenthesis(char) {
-        return (char === ")");
+        return (char === ")" || char === ']' || char === '}');
     }
 
     static isOperator(char) {

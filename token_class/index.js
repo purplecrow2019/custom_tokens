@@ -8,12 +8,14 @@ const _= require('lodash');
 const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
+const cors = require('cors');
 
 
 
 
 app.use(bodyParser.json({ limit: '10mb', extended: true }))
 app.use(bodyParser.urlencoded({ limit: '10mb', extended: true }))
+app.use(cors())
 
 // let tokens = Tokenizer.standardTokenize("sin^(2)alpha+tan^(2)beta+sec^(2)gamma");
 // let tokens = Tokenizer.standardTokenize('int_(-1)^(3/2)|x sin pi x|dx');
@@ -27,8 +29,28 @@ app.use(bodyParser.urlencoded({ limit: '10mb', extended: true }))
 
 
 app.post('/tokenize',function(req,res){
-    let tokens = Tokenizer.standardTokenize('(d)/(dx)[log(sec x+tan x)]');
+    // let tokens = Tokenizer.standardTokenize('(d)/(dx)[log(sec x+tan x)]');
+
+
+    // preprocess separate function to be made
+    let tokenisation_string = req.body.token_string;
+    // remove the spaces trialing and beginning
+    tokenisation_string = tokenisation_string.trim();
+    tokenisation_string = tokenisation_string.replace( /  +/g, ' ' );
+    // make the text all to lower case
+    tokenisation_string = tokenisation_string.toLowerCase();
+
+
+
+
+    let tokens   = Tokenizer.standardTokenize(tokenisation_string);
+    console.log('tokens -- --= = = = ==  =  tokens');
+    console.log(tokens);
+
+    console.log('tokens =  = == === =  tokens');
+
     let CustomTokens = CustomTokenizer.getCustomTokenised(tokens);
+    console.log(CustomTokens);
     let responseData = {
         "meta": {
             "code": 200,
@@ -37,7 +59,7 @@ app.post('/tokenize',function(req,res){
         },
         "data": CustomTokens
     }
-    // res.send(CustomTokens);
+    res.send(responseData);
     // console.log(CustomTokens);
 });
 

@@ -15,3 +15,4 @@ module.exports = class CompleteToken {
         return this.value;
     }
 }
+

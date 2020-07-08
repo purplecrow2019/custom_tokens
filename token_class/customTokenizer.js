@@ -46,7 +46,7 @@ module.exports = class CustomTokenizer{
             else if (token.value == ':') {
                 // console.log('i am in the f block');
                 // console.log(tokens[index+1].value);
-                if (tokens[index - 1].value == 'f') {
+                if (tokens[index - 1].value == 'f' | tokens[index - 1].value == 'g' | tokens[index - 1].value == 'h'   ) {
                     complete_token.push(new CompleteToken(buff_type, 'f:', 'Function'));
                 }
                 buff_arr = [];
@@ -74,6 +74,10 @@ module.exports = class CustomTokenizer{
                         // ---- token comes  and token value
                 if(buff_type == 'lp' || buff_type == 'rp' || buff_type == 'Delimiter'){
                     // console.log('removing the code for lp and rp');
+                    let token_type = buff_type;
+                    complete_token.push(new CompleteToken(token_type, 'lp', 'd'));
+                    buff_arr = [];
+                    buff_type = null;
                 }
                 
                 else{
